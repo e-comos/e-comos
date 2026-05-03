@@ -1,0 +1,12 @@
+# 必须包含 [package] 部分，否则Cargo无法识别这是一个 crate
+[package]
+name = "wm"  # 包名（与模块名一致）
+version = "0.1.0"  # 版本号
+edition.workspace = true  # 继承workspace的Rust版本（2021）
+license.workspace = true  # 继承workspace的许可证
+
+# 依赖配置（之前的内容保留）
+[dependencies]
+common = { path = "../common" }  # 依赖共享模块
+x86_64 = { workspace = true, features = ["instructions"] }  # 继承workspace的x86_64版本
+linked_list_allocator = { workspace = true }

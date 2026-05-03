@@ -1,0 +1,151 @@
+# GNU Make for E-comOS
+
+This is GNU Make ported to the E-comOS operating system.
+
+## Quick Start
+
+### 1. Build Make
+
+```bash
+# Set ECLib path
+export ECLIB_PATH=/path/to/ECLib
+
+# Build
+make -f Makefile.ecomos CFLAGS="-I${ECLIB_PATH}/include" LDFLAGS="-L${ECLIB_PATH}/lib -leclib"
+
+# Install
+cp make >bin>make
+```
+
+### 2. Usage Example
+
+See `examples/hello_ecomos/` directory for complete examples.
+
+Basic Makefile:
+
+```makefile
+CC = eclib-gcc
+TARGET = myapp
+
+$(TARGET): main.c
+	$(CC) -o $@ $< -leclib
+
+clean:
+	rm -f $(TARGET)
+```
+
+Run:
+
+```bash
+>bin>make
+```
+
+## Core Features
+
+### Implemented
+- ✓ Basic Makefile parsing
+- ✓ Dependency checking
+- ✓ File timestamp comparison
+- ✓ Variable expansion
+- ✓ Pattern rules
+- ✓ Subprocess execution
+- ✓ Environment variable support
+- ✓ Automatic path conversion
+
+### Limitations
+- ✗ Parallel builds (jobserver not implemented)
+- ✗ Archive file support
+- ✗ Output synchronization
+
+## Key Differences
+
+### Path Format
+- Unix: `/usr/bin/gcc`
+- E-comOS: `>usr>bin>gcc`
+
+Paths are automatically converted, but it's recommended to use E-comOS format directly in Makefiles.
+
+### Shell
+Default shell is `>bin>esh` (E-comOS Shell).
+
+### Pipe Symbol
+- Unix: `|`
+- E-comOS: `->`
+
+Use E-comOS syntax in Makefile commands.
+
+## File Structure
+
+```
+src/
+├── eclib_adapter.h      # ECLib adapter header
+├── eclib_adapter.c      # Path conversion implementation
+├── ecomos.c             # E-comOS specific functionality
+└── config.h-ecomos      # Platform configuration
+
+Makefile.ecomos          # E-comOS build file
+PORTING.md               # Detailed porting documentation
+examples/                # Example code
+└── hello_ecomos/        # Hello World example
+```
+
+## Environment Variables
+
+```bash
+# Compiler
+export CC=eclib-gcc
+
+# Include path
+export CFLAGS="-I>usr>include"
+
+# Library path
+export LDFLAGS="-L>usr>lib -leclib"
+
+# Make flags
+export MAKEFLAGS="-j1"
+```
+
+## Testing
+
+Run test suite:
+
+```bash
+chmod +x test_ecomos.sh
+./test_ecomos.sh
+```
+
+## Troubleshooting
+
+### Issue: Shell not found
+**Solution**: Ensure `>bin>esh` exists and is executable
+
+### Issue: Path errors
+**Solution**: Use `>` not `/` as path separator
+
+### Issue: Build failed
+**Solution**: Check ECLib path is correctly set
+
+## Documentation
+
+- [PORTING.md](PORTING.md) - Complete porting guide
+- [examples/](examples/) - Usage examples
+- [GNU Make Manual](https://www.gnu.org/software/make/manual/)
+
+## System Requirements
+
+- E-comOS operating system
+- ECLib library
+- Running system services:
+  - process_service
+  - file_service
+  - time_service
+  - signal_service
+  - pipe_service
+
+## License
+
+GNU General Public License v3.0 or later
+
+## Contributing
+
+Bug reports and feature requests are welcome!

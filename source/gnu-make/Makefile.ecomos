@@ -1,0 +1,54 @@
+# Makefile for building GNU Make on E-comOS
+
+# Compiler and flags
+CC = eclib-gcc
+CFLAGS = -I. -Isrc -I/path/to/ECLib/include -DMK_OS_ECOMOS=1 -DUSE_ECLIB=1
+LDFLAGS = -L/path/to/ECLib/lib -leclib
+
+# Source files
+SRCS = src/main.c \
+       src/commands.c \
+       src/default.c \
+       src/dir.c \
+       src/expand.c \
+       src/file.c \
+       src/function.c \
+       src/hash.c \
+       src/implicit.c \
+       src/job.c \
+       src/load.c \
+       src/misc.c \
+       src/output.c \
+       src/read.c \
+       src/remake.c \
+       src/rule.c \
+       src/strcache.c \
+       src/variable.c \
+       src/version.c \
+       src/vpath.c \
+       src/warning.c \
+       src/eclib_adapter.c \
+       src/ecomos.c
+
+# Object files
+OBJS = $(SRCS:.c=.o)
+
+# Target executable
+TARGET = make
+
+# Build rules
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) -o $@ $(OBJS) $(LDFLAGS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJS) $(TARGET)
+
+install: $(TARGET)
+	cp $(TARGET) >bin>make
+
+.PHONY: all clean install

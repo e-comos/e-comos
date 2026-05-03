@@ -1,0 +1,17 @@
+The E-comOS Kernel and the vast majority of software follows the GNU AGPL version 3. See LICENSE at
+	<project name>/LICENSE
+or
+	<project name>/COPYING
+
+Some software added Additional Terms, you can see that at
+	<project name>/COPYING.*
+or
+	<project name>/LICENSE.*
+GTlib follows GNU GPL version 2 ONLY. See LICENSE at `https://github.com/e-comos/
+
+gitgitgadget is follows the ISC license. But it is not in this repo.
+
+Documents follows GNU FDL version 1.x (vast mojority of documents follows the GNU FDL version 1.3) 
+when we DO NOT added more terms.
+
+THIS REPO ITSELF DO NOT HAVE ANY LICENSE

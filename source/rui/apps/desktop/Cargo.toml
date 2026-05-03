@@ -1,0 +1,24 @@
+[package]
+name = "desktop"
+version = "0.1.0"
+edition.workspace = true  # 继承workspace的Rust edition（2021）
+license = "AGPL-3.0    # 应用使用Apache许可，与主仓库区分
+
+# 声明可执行文件（输出为名为desktop的二进制程序）
+[[bin]]
+name = "desktop"
+path = "src/main.rs"
+
+[dependencies]
+# 依赖RUI控件库（提供Icon、Button等基础控件）
+rui-lib = { path = "../../rui-lib" }
+
+# 依赖共享模块（定义IPC消息、基础类型）
+common = { path = "../../common" }
+
+# x86_64硬件指令库（如hlt停机指令）
+x86_64 = { workspace = true }
+
+# 字体库（文字渲染依赖）
+font8x8.workspace = true
+

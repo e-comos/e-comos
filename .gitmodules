@@ -1,0 +1,60 @@
+[submodule "kernel"]
+	path = kernel
+	url = https://github.com/e-comos/kernel.git
+[submodule "apse"]
+	path = apse
+	url = https://github.com/e-comos/apse.git
+[submodule "dos25"]
+	path = dos25
+	url = https://github.com/e-comos/dos25.git
+[submodule "ebts"]
+	path = ebts
+	url = https://github.com/e-comos/ebts.git
+[submodule "init-service"]
+	path = init-service
+	url = https://github.com/e-comos/init-service.git
+[submodule "eclib"]
+	path = eclib
+	url = https://github.com/e-comos/ECLib.git
+[submodule "cook"]
+	path = cook
+	url = https://github.com/e-comos/cook.git
+[submodule "poweroffer"]
+	path = poweroffer
+	url = https://github.com/e-comos/poweroffer.git
+[submodule "eosinstaller"]
+	path = eosinstaller
+	url = https://github.com/e-comos/eosinstaller.git
+[submodule "fs"]
+	path = fs
+	url = https://github.com/e-comos/fs.git
+[submodule "esecp"]
+	path = esecp
+	url = https://github.com/e-comos/ESECP.git
+[submodule "el"]
+	path = el
+	url = https://github.com/e-comos/el.git
+[submodule "eclc"]
+	path = eclc
+	url = https://github.com/e-comos/ECLC.git
+[submodule "fcef"]
+	path = fcef
+	url = https://github.com/e-comos/fcef.git
+[submodule "commandbox"]
+	path = commandbox
+	url = https://github.com/e-comos/commandbox.git
+[submodule "marius"]
+	path = marius
+	url = https://github.com/e-comos/Marius.git
+[submodule "edc"]
+	path = edc
+	url = https://github.com/e-comos/edc.git
+[submodule "gnu-make"]
+	path = gnu-make
+	url = https://github.com/e-comos/GNU-Make-for-E-comOS.git
+[submodule "gtlib"]
+	path = gtlib
+	url = https://github.com/e-comos/GTlib.git
+[submodule "rui"]
+	path = rui
+	url = https://github.com/e-comos/RUI.git

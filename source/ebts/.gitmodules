@@ -1,0 +1,3 @@
+[submodule "commandbox"]
+	path = commandbox
+	url = https://github.com/E-comOS-Operation-System/commandbox.git

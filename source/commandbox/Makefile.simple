@@ -1,0 +1,36 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c99
+BINDIR = bin
+
+.PHONY: all clean commands test
+
+all: commands $(BINDIR)/commandbox-simple
+
+$(BINDIR)/commandbox-simple: src/simple_commandbox.c | $(BINDIR)
+	$(CC) $(CFLAGS) $< -o $@
+
+$(BINDIR):
+	mkdir -p $(BINDIR)
+
+commands:
+	$(MAKE) -C commands
+
+clean:
+	rm -rf $(BINDIR)
+	$(MAKE) -C commands clean
+
+test: all
+	@echo "Testing E-comOS CommandBox..."
+	@$(BINDIR)/commandbox-simple output "Hello E-comOS!"
+	@$(BINDIR)/commandbox-simple lookup .
+
+config:
+	@echo "E-comOS CommandBox Configuration"
+	@echo "Available commands:"
+	@echo "  lookup  - List directory contents"
+	@echo "  saw     - Display file contents"
+	@echo "  del     - Delete files/directories"
+	@echo "  copy    - Copy/move files"
+	@echo "  goto    - Change directory"
+	@echo "  info-of - Show file information"
+	@echo "  output  - Output text"

@@ -1,0 +1,17 @@
+This is a repository that contains everything of E-comOS!
+All code (excluding documentation) is included in the form of submodules.
+This repository does not use a unified license; instead, all licenses are placed
+in the `LICENSE` folder for unified viewing. The license names of each reposito-
+ry are similar:
+	<repo name>.lincense (<.txt/.rtf>)
+All code is put in the `source` folder.
+About documentation we use GNU FDL Version 1.3 or later (see COPYING.DOC) , you 
+can see our documents in `docs` folder.
+
+For developers of documents fix:
+	Read `docs/getting-started.DOCS` file, then `git add` your fix , and `git commit` to say what do you changed. After that please `git format-patch` to create a new patch file , at last to send your patch file (via `git send-email` or your e-mail software ) to e-comos-kernel@groups.io
+	NOTE: ABOUT `WHY EMAIL ADDRESS IS `e-comos-kernel@groups.io`:
+		Because our team is small , don't need to more mailing list for develop. This is a history problem.
+
+Thank you very much.
+Last update: May 1, 2026. UTC+0000 8:51~8:52 

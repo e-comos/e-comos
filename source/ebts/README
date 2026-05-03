@@ -1,0 +1,22 @@
+ebts - E-comOS Basic Terminal Shell
+==============================================================================
+ebts is the standard terminal for the E-comOS operating system. ebts syntax differs from that of Unix-like systems.
+==============================================================================
+How to use it
+------------------------------------------------------------------------------
+You need to use your command-line application here; upon startup, you will see:
+  Welcome to ebts version 1.
+  Last log in is on 2025-11-12 00:00
+  [computer:user] root > 
+In this screen , you can input your command.
+For exmple:
+  [computer:user] root > lookup .
+  This command will show which child objects are in the root object.
+In E-comOS, the file system follows the principle of "everything is an object." The entire system uses only two types of objects: FileObject and FolderObject, representing files and folders respectively.
+==============================================================================
+How to licensed it
+------------------------------------------------------------------------------
+We use AGPL Version 3 to licensed our project .
+==============================================================================
+END OF THIS PASSAGE
+==============================================================================

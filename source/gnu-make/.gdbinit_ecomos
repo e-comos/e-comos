@@ -1,0 +1,33 @@
+# GDB initialization for E-comOS Make debugging
+
+# Break on main
+break main
+
+# Break on key functions
+break ecomos_spawn_child
+break ecomos_file_stat
+break ecomos_path
+
+# Display settings
+set print pretty on
+set print array on
+set pagination off
+
+# Custom commands
+define show-path
+  printf "Unix path: %s\n", $arg0
+  call ecomos_path($arg0)
+  printf "E-comOS path: %s\n", $
+end
+
+define show-stat
+  printf "File: %s\n", $arg0
+  call ecomos_file_stat($arg0, &st)
+  printf "mtime: %lld\n", st.mtime_sec
+end
+
+echo \n=== E-comOS Make Debugger Ready ===\n
+echo Commands:\n
+echo   show-path <path>  - Convert and show path\n
+echo   show-stat <file>  - Show file stats\n
+echo \n

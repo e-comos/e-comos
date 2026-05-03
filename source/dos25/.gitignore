@@ -1,0 +1,7 @@
+build/
+*.o
+*.bin
+*.img
+*.dsf
+dos25-disk
+.DS_Store

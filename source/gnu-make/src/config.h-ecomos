@@ -1,0 +1,62 @@
+/* Configuration for E-comOS port of GNU Make */
+
+#ifndef CONFIG_H_ECOMOS
+#define CONFIG_H_ECOMOS
+
+/* Define E-comOS platform */
+#define MK_OS_ECOMOS 1
+
+/* Basic features */
+#define HAVE_FORK 1
+#define HAVE_PIPE 1
+#define HAVE_WAITPID 1
+
+/* Path configuration */
+#define PATH_SEPARATOR_CHAR ':'
+#define HAVE_DOS_PATHS 0
+
+/* Disable features not available on E-comOS */
+#define NO_ARCHIVES 1
+#define NO_OUTPUT_SYNC 1
+#undef MAKE_JOBSERVER
+
+/* Use ECLib instead of standard library */
+#define USE_ECLIB 1
+
+/* File timestamp type */
+typedef unsigned long long FILE_TIMESTAMP;
+
+/* Process ID type */
+typedef int pid_t;
+
+/* Size type */
+typedef unsigned long size_t;
+
+/* Signal definitions from ECLib */
+#define SIGINT  2
+#define SIGTERM 15
+#define SIGCHLD 17
+#define SIGKILL 9
+
+/* File access modes */
+#define R_OK 4
+#define W_OK 2
+#define X_OK 1
+#define F_OK 0
+
+/* Exit codes */
+#define EXIT_SUCCESS 0
+#define EXIT_FAILURE 1
+
+/* Standard file descriptors */
+#define STDIN_FILENO  0
+#define STDOUT_FILENO 1
+#define STDERR_FILENO 2
+
+/* Maximum path length */
+#define PATH_MAX 4096
+
+/* Shell configuration */
+#define DEFAULT_SHELL ">bin>esh"
+
+#endif /* CONFIG_H_ECOMOS */

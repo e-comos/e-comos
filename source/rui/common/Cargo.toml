@@ -1,0 +1,16 @@
+[package]
+name = "common"
+version = "0.1.0"
+edition.workspace = true  # 继承workspace的edition
+license.workspace = true
+
+[lib]
+crate-type = ["rlib"]  # 编译为静态库（供其他crate链接）
+
+[[bin]]
+name = "common"
+path = "src/main.rs"
+
+[dependencies]
+
+x86_64 = { workspace = true }  # 继承workspace的x86_64版本
