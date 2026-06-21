@@ -164,5 +164,5 @@ And, some functions have too more parameters, please define it like:
 _Noreturn void a_no_retuen_long_paramters_func (int a, int b, char[] c, void* d, bool f
                                                 FILE* g, pid_t h, uint32_t i, int64_t j);
 ```
-> [!NOTICE]
+> [!NOTE]
 > If your function name is too long, use the abbreviations if you can.
