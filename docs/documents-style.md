@@ -1,0 +1,11 @@
+# E-comOS Documents Style
+Before read this passage, please print the  "Compendium of Rhetoric Techniques" of the language you use. Then, don't read it. Please make it break.<br€
+However, let's start.
+## Classification of Indicative Words
+Some heresy will confuse "should", "can" and "must" in spoken language and documents. You shouldn't learn these heretical ideas. Let's take a look at the real division of each word.
+|Level|Word(s)|What Means|
+|:-----:|:-------:|:-----------:|
+|Zero|**MUST**|"Must" means that you can only continue the whole process after completing this matter.<br>For Example: "For system update, you **must** free up some RAM."|
+|One|**SHOULD**|The word "should" means that if you don't do it, the process may continue, but the result may not be as expected or other problems may occur.<br> A good example is "You should config your network now"|
+|Two|**MAYBE**,**CAN**|"Can" means that doing or not doing this does not have much impact on the state after the end of the whole process.<br> A good example:"You can set up a Hostname now, or you can skip, set up later."|
+Please don't mix them in any document, just like some heretical teachers.
