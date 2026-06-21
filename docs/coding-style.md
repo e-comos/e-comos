@@ -228,4 +228,138 @@ err:
 This code is copied from *Linux Coding Guide*.<br>
 The error in this code is that foo is NULL on some exit paths. Usually, this error is fixed by separating it into two error tags err_free_bar: and err_free_foo
 ### Comments
-After the C11, C support the one line comments.<br>
+After the C11, C support the single-line comments.<br>
+#### Single-Line Comments
+The single-line comments like this:
+```C
+// This is a comment
+```
+Single-line comments are used to describe the purpose of the code on the current line, the preceding line, or the following line. For Example:
+```C
+int tmp = 0 // Init tmp is 0
+```
+You shouldn't use too many single-line comments, for example, this:
+```C
+// This comments have too many signgle-line comments
+// Don't Do that.
+// Your comments (single-line) should <3 lines
+// But this ... is 5 lines
+// So, it's wrong.
+
+// 👆 This is WRONG ❌
+// 👆 But this is right ✅.
+```
+Comments are good, but there is a risk of over-commenting. Never use comments to explain how your code works; it is better to write code that is self-explanatory, as explaining poorly written code is a waste of time.<br>
+When you are writing a comments document, a good way is use multi-line comments. But you can use the single-line comemnts, too. For example:
+```C
+// ----- THIS IS A SUBJECT -----
+// Chapter A.
+//   ...
+// ------- END OF TEXT ---------
+```
+You should try to ensure that the number of `=` or `-` characters at the beginning and end of the comment matches, and that the closing text (such as `END OF TEXT`) aligns roughly with the position of the opening text.
+#### Multi-Line Comments
+The multi-line comments is a good way to write comments document.<br>
+For examples:
+```C
+/**
+ * This is the preferred style for multi-line
+ * comments in the Linux kernel source code.
+ * Please use it consistently.
+ *
+ * Description:  A column of asterisks on the left side,
+ * with beginning and ending almost-blank lines.
+ */
+```
+See [document style](documents-style.md) to learn details.<br>
+In any case, annotating data—whether of basic or derived types—is important. To facilitate this, declare only one data item per line (avoid declaring multiple items at once using commas). This leaves you space to write a brief comment explaining the purpose of each item.
+### Macro & Constant
+#### Define a Macro or Define a Constant
+> [!WARNING]
+> If possible, avoid redefining macros.<br>
+> Macros are not type-safe;<br>
+> you should not use them indiscriminately. If a constant is required to ensure type safety, use a constant instead of a macro.<br>
+Defining a macro or a constant is a very simple task.
+##### Define a Macro
+Define a macro; use uppercase letters for the macro name, although function-like macros may use lowercase letters.<br>
+Like this:
+```C
+#define THIS_IS_A_MACRO
+```
+Macros containing multiple statements should be enclosed in a do-while block:
+```C
+#define macrofun(a, b, c)                       \
+        do {                                    \
+                if (a == 5)                     \
+                        do_this(b, c);          \
+        } while (0)
+```
+Things to avoid when using macros:
+ 1. Macros that affect control flow:
+```C
+#define FOO(x)                                  \
+        do {                                    \
+                if (blah(x) < 0)                \
+                        return -EBUGGERED;      \
+        } while (0)
+``}
+```
+It's not good, It looks like a function, yet it causes the function that **called** it to exit; don't confuse the reader's mental parser.
+2. A macro that relies on a local variable with a fixed name.
+3. Parameterized macros used as lvalues—such as `FOO(x) = y`—will cause errors if `FOO` is converted into an inline function.
+4. Overlooking operator precedence: Macros that define constants using expressions must enclose the expression in parentheses. Macros with parameters also require attention to this issue.
+```C
+#define CONSTANT 0x4000
+#define CONSTEXP (CONSTANT | 3)
+```
+5. Naming conflicts when defining function-like local variables within macros.
+#### Constant
+Constants are defined and follow the same conventions as macros; however, it is important to note that, unlike macros, constants incur a runtime overhead.<br>
+However, when a feature requires strong type safety and performance is not critical, use constants (although such cases are rare).
+### Print the Message
+#### In the Kernel
+When you are coding for kernel. Please use the `print_str` to print the kernel message.<br>
+Kernel's print_* functions unsupport format output now.
+#### In the User Space
+Use the `printf` `spintf` and other functions to do it.
+#### Note
+> [!NOTE]
+> Kernel developers should come across as articulate. Pay close attention to the spelling of kernel messages to ensure a good impression. Avoid non-standard forms like "dont"; instead, use "do not" or "don't." Ensure that these messages are simple, clear, and unambiguous.<br>
+> Kernel messages do not need to end with a period.<br>
+### Editor
+Some editors can interpret configuration information embedded in source files and marked with special tags. For example, Emacs can parse lines marked like this:
+```paint text
+-*- mode: c -*-
+```
+Or this
+```C
+/*
+Local Variables:
+compile-command: "gcc -DMAGIC_DEBUG_FLAG foo.c"
+End:
+*/
+```
+Vim can parse markers like this:
+```C
+/* vim:set sw=8 noet */
+```
+Do not include any such content in the source code. Everyone has their own editor configuration, and your source files should not override others' settings. This includes markers related to indentation and mode configuration. People can use their own custom modes or employ other clever methods to achieve the correct indentation.
+## Compile Codes and Assembly Language
+### Inline Assembly
+Inline assembly is not good for cross-platform. However, in code targeting specific architectures, you may need inline assembly to interface with CPU- and platform-specific features. Do not hesitate to do so when necessary. Yet, avoid using inline assembly unnecessarily when C can get the job done; whenever possible, you can—and should—communicate with the hardware using C.<br>
+Consider writing simple helper functions to encapsulate common inline assembly sequences, rather than repeatedly writing inline assembly code that differs only slightly. Remember that inline assembly can utilize C parameters.<br>
+Large, reasonably complex assembly functions should be placed in .S files, with their corresponding C prototypes defined in C header files.<br>
+You might need to mark assembly statements as `volatile` to prevent GCC from removing them after failing to detect any side effects. However, you do not always need to do this, as unnecessary use of `volatile` can limit optimization.<br>
+When writing a single inline assembly statement containing multiple instructions, enclose each instruction in quotes and place it on a separate line; append `\n\t` to the end of every instruction except the last one to ensure correct indentation for the next instruction in the assembly output:
+```C
+asm ("magic %reg1, #42\n\t"
+     "more_magic %reg2, %reg3"
+     : /* outputs */ : /* inputs */ : /* clobbers */);
+```
+### Assembly Syntax
+Assembly syntax is highly fragmented, with different syntaxes for each architecture; x86 assembly, in particular, suffers from the most severe fragmentation. We use GAS/AT&T syntax for x86 assembly, while for other architectures, we follow the officially recommended conventions.
+### Compile
+Please enable -Werror or an equivalent flag when compiling.
+
+---
+Last Update: Sun Jun 21 8:43 PM(UTC+0800), 2026
