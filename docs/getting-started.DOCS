@@ -1,0 +1,44 @@
+Getting Started Guide - For Developers
+------
+Welcome to the world of E-comOS!
+Come into a new community, you have many thing want to know, right? This guide will give you some helps for your works!
+------
+How to Contribute
+One. Submit an Issue Report
+  If you found out a bug, you can submit one bug report to our bug tracker, when you submit the report, you write these in your report:
+         - What were you doing when the problem occurred?
+         - What did you expect to happen?
+         - What actually happened?
+         - What operating system are you using?
+         - What CPU architecture are you using?
+         - What version of the kernel are you using?
+         - What version of the compiler are you using?
+         - Or , can you submit the screenshot with your report?
+  We'll fix your problem quickly, but some problems we won't fix, because may be it's yourself or your computer's problem.
+  If we encounter this situation, we will mark your issue report as "WONTFIX," meaning we will not fix the issue.
+Two. Translate
+  There are some comments in codes, some documents or others using English only , or other language only.
+  We need some people to translate them, if you're going to translate, please `git clone` our repo first, and send a patch to our mailing list <e-comos-kernel@groups.io>.
+Three. Codes
+  The codes is most important, if you can, please join up us to develop E-comOS, we're using 1TBS, 4-bits tab and snake_case only.
+  We'll reject use the Allman, GNU style and spaces, camlCase codes in our codes.
+  E-comOS unsupport the pull request via GitHub, please use the mailing list.
+  A. Vibe Code
+    Coder can use the AI to help they. But, you've to know, if you want to use the AI(vibe code), you MUST:
+       - Review your code by yourself;
+       - CAN'T send the patch and using AI to provide responses during code reviews;
+       - You CAN'T use the AI to generate the ideas; and
+       - The copyright is YOUR, when you push the code, your copyright line should like this:
+                Copyright(C) YOUR NAME   YEARS
+Four. Douments
+  We talked the codes, but we forgot documents.
+  In the E-comOS Operating System Project, we often use the MarkDown or paint text.
+  A.Paint Text
+    When you want to write documents for E-comOS and you're using the paint text, please remember:
+    The length of a line of characters is 16 centimeters.
+    If your line is too long, the reader can't read your document's full text. It's very bad.
+  (NOTICE: We know there are so many kinds of English, but we don't cares which one you're using)
+  B.Markdown
+    I hate the Markdown.
+    Because when you type the Enter key, if you DO NOT add the `<br>`, Markdown cannot switch the line , in the preview ... it's looks a shit.
+    So, please add the `<br>` before `enter` key.
