@@ -185,5 +185,47 @@ _Noreturn void kernel_panic(char* errmsg) {
 }
 ```
 A defined function should have a implement
-> [!INFO]
-> if
+> [!NOTE]
+> If you found out some functions was define but don't have implement, and this functions is unuseful, please remove it.
+#### Quit the Function
+> [!WARNING]
+> Not any functions need quit or return, don't add the `return` in these functions
+##### Plan A: Return
+If your code have a caller, you can use the 'return' to come back. Like:
+```C
+int main(void) {
+  return 0;
+}
+```
+It's not useful in the kernel. Some functions don't have caller.
+##### Plan B: Goto
+Although it is claimed to be outdated by some people, the equivalent of goto statements is still often used by compilers, and the specific form is unconditional jump instructions.<br>
+When a function exits from multiple positions and needs to do some common operations similar to cleaning, the goto statement is very convenient. If you don't need to clean up, just return directly.<br>
+Choose a tag name that can explain the goto behavior or why it exists. If goto wants to release buffer, a good name can be out_free_buffer:. Don't use GW_BASIC names like err1: and err2:, because once you add or delete the exit path (of the function), you have to renumber them, which will be difficult to check the correctness.<br>
+Example:
+```C
+int foo(int* a) {
+  do {
+    something(a);
+    a++;
+    if (a <= a_number) goto a_number_more_than_a;
+  }
+  while (something);
+  goto exit;
+a_number_more_than_a:
+  free(a_number_more_than_a);
+exit:
+  free(a);
+  exit(0);
+```
+Pay attention for this error:
+```C
+err:
+  mm_free(tmp->foo);
+  mm_free(tmp);
+  return ret;
+```
+This code is copied from *Linux Coding Guide*.<br>
+The error in this code is that foo is NULL on some exit paths. Usually, this error is fixed by separating it into two error tags err_free_bar: and err_free_foo
+### Comments
+After the C11, C support the one line comments.<br>
