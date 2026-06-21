@@ -166,3 +166,24 @@ _Noreturn void a_no_retuen_long_paramters_func (int a, int b, char[] c, void* d,
 ```
 > [!NOTE]
 > If your function name is too long, use the abbreviations if you can.
+#### Implement the Function
+> [!NOTE]
+> The implement should put in the '.c' file, or, some functions don't need one line to define, so just put it in your '.c' file
+> If you want to include a function but this function don't have a special statement(e.g., `int a_func(void);`), please use the
+> `extern` to include
+If your function's define don't give parameter a name, in your implement, you should give parameter a name. Like this:
+```C
+/* In your .h file, the functions define: */
+_Noreturn void kernel_panic(char*);
+/* Wrong ❌ */
+_Noreturn void kernel_panic(char*) { // Compile will report the error
+  /* Codes here */;
+}
+/* Right ✅ */
+_Noreturn void kernel_panic(char* errmsg) {
+  /* Codes here */
+}
+```
+A defined function should have a implement
+> [!INFO]
+> if
