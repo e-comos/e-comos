@@ -153,7 +153,16 @@ int right_func(void);
 ```
 You can define a function and you don't need give your parameters a name, but it's not good:
 > [!WARNING]
-> The codes like
-> ```C
-> int warn_func(int, ...)
-> ``` is 
+> The codes like ```int warn_func(int)``` is not good.
+> If others see this code, if they don't check the .c file, they cannot know what's means of this parameter.
+The good ways are:
+```C
+int good_func(char* print_words);
+```
+And, some functions have too more parameters, please define it like:
+```C
+_Noreturn void a_no_retuen_long_paramters_func (int a, int b, char[] c, void* d, bool f
+                                                FILE* g, pid_t h, uint32_t i, int64_t j);
+```
+> [!NOTICE]
+> If your function name is too long, use the abbreviations if you can.
