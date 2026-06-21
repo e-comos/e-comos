@@ -19,7 +19,7 @@ void* func1(void) {
 int main(void)
 {
   func1();
-  if (func1 != NULL)
+  if (func1() != NULL)
   {
     abort();
   }
@@ -32,7 +32,7 @@ int main(void)
 ### Tab
 You have to use the Tab key to indentation. Here is a Example
 ```C
-for (int cnt=1, cnt<=5, cnt++) {
+for (int cnt=1;cnt<=5;cnt++) {
   // Wrong ❌
   printf("This is wrong");
   // Right ✅
@@ -53,7 +53,7 @@ if (something == true) do_something(); else do_others();
 ```
 Some fools write code like this.
 ```C
-if (some_function() == true) { do_first_thing() } else if (return_value == A_MACRO) { do_a_thing(); } else {return;}
+if (some_function() == true) { do_first_thing(); } else if (return_value == A_MACRO) { do_a_thing(); } else {return;}
 ```
 Don't do that. It's ugly.
 ### Spaces
@@ -76,5 +76,84 @@ You shouldn't add the spaces after "(" in one line.
 /* Right ✅ */
 for (;;) {
   __builtin_unreachable();
+}
 ```
 Before the '.' and the '->' don't put the spaces.
+```C
+struct_a a.b // Right✅
+struct_b c->d // Right✅
+```
+A good code should look like this:
+```C
+#include <stdio.h>
+#include <dosomething.h>
+int main(void) {
+  int var;
+  scanf("%d",&war);
+  for (int tmp=var; tmp >= 0; tmp--) { // Put a spaces before '--''++' is ugly
+    printf("%d",&tmp);
+  }
+  exit(0);
+}
+```
+### Name
+When you want to name a variable, you have to distinguish whether it is a global variable or a local one.
+#### Global
+A The name of a global variable should be simple and easy to remember.
+```C
+// Good 👍
+time_t log_the_user_login_time;
+// Bad 👎
+time_t ltult;
+```
+We are using the snack_case to name a variable.
+```C
+/* Right ✅ */
+int nothing_here_return = 0;
+// Wrong ❌
+int nothingHereReturn = 0;
+```
+In the global variable name, you can add the subsystem's name, like
+```C
+int network_count_user_concent = 0;
+```
+Don't use the `_` in the variable's start. Not include you must to do that.<br>
+#### Local
+The local name is same with the global name, but if you can, please make it shortly<br>
+You can use some alias , e.g.:
+```C
+int cnt; // A alias for count.
+```
+> [!WARNING]
+> The words like 'master' 'alloc' may be was use in the code, please check your name, are they repeat some variables name?
+### Functions
+#### Functions Name
+The name of a function should be self-explanatory. That is to say, a fifth-grade student in Chinese primary school who knows a little English should be able to know the function of a function by reading your function name. For example:
+```C
+int output_numbers(int num);
+```
+You can use some abbreviations that everyone understands. For example, you can name a function like this:
+```C
+int without_arg_malloc(void);
+// Or
+int mm_alloc_arg(int arg1);
+```
+In this example, arg and malloc is a abbreviations.<br>
+#### Define a Function
+If you want to define a function, a good way is define it in your .h files, like this:
+```C
+int func(void);
+```
+When you define a function, and this function has no parameter, please type the 'void' in the '()'. Like this:
+```C
+// Wrong ❌
+int wrong_func();
+// Right ✅
+int right_func(void);
+```
+You can define a function and you don't need give your parameters a name, but it's not good:
+> [!WARNING]
+> The codes like
+> ```C
+> int warn_func(int, ...)
+> ``` is 
