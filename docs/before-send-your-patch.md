@@ -14,4 +14,4 @@ Therefore, it is important to keep your code neat and compilable (no one likes t
 So, please test your code on your computer. Don't think the CI or CD system can help you.
 ## Commit
 Commit message is not important.  
-No matter what others say, the only purpose of your commit message is to let others know what you have done. So you don't need (it doesn't mean hard requirements, see [documents style](document-style.md)) to add prefixes such as feat.
+No matter what others say, the only purpose of your commit message is to let others know what you have done. So you don't need (it doesn't mean hard requirements, see [documents style](documents-style.md)) to add prefixes such as feat.
