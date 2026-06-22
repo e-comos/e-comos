@@ -1,7 +1,7 @@
 # E-comOS Coding Style Guide
 ## Overview
-The codes is most important, if you can, please join up us to develop E-comOS, we're using **1TBS, 4-bits tab and snake_case** **only**.<br>
-We'll **reject** use the **Allman, GNU style** and **spaces, camlCase** codes in our codes.<br>
+The codes is most important, if you can, please join up us to develop E-comOS, we're using **1TBS, 4-spaces  tab and snake_case** **only**.<br>
+We'll **reject** use the **Allman, GNU style** and **spaces, camelCase** codes in our codes.<br>
 Before reading this article, please print out a copy of the *GNU Coding Standards*, the *Allman Style Guide*, or your company's internal coding style guidelines, and then destroy the document using a shredder that meets Pentagon standards for the destruction of classified materials—an act of great symbolic significance. At the same time, please print out a copy of *The C Programming Language* (K&R) for reference—an act that is also of great symbolic significance.
 ## Basic Code Style
 ### Curly Brackets
@@ -80,16 +80,15 @@ for (;;) {
 ```
 Before the '.' and the '->' don't put the spaces.
 ```C
-struct_a a.b // Right✅
-struct_b c->d // Right✅
+struct_a a.b // Right ✅
+struct_b c->d // Right ✅
 ```
 A good code should look like this:
 ```C
 #include <stdio.h>
-#include <dosomething.h>
 int main(void) {
   int var;
-  scanf("%d",&war);
+  scanf("%d",&var);
   for (int tmp=var; tmp >= 0; tmp--) { // Put a spaces before '--''++' is ugly
     printf("%d",&tmp);
   }
