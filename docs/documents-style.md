@@ -24,7 +24,15 @@ So, don't use repeat in your document(s).
 ### Metaphor
 > [!NOTE]
 > Unless you are writing documents for ordinary users, don't use metaphors unless necessary. Especially the metaphor that is too elegant.
+
 Metaphor shouldn't use in the tech documents for developers.  
 But you can use the metaphor in the document for users. A good metaphor should like this:  
 > Kernel is a foundation for operating system.
-When you're using the
+
+When you are using metaphors, your metaphor should not distort the technical facts - you will make the same mistake as the sentence mainly discussed in this chapter.  
+> Wrong
+    > Our IPC is like a money truck ...
+> Right
+    > Our IPC is like a water pipe ...
+In this sentence, "money truck" means our IPC is slow and fat, but it's not true.  
+So, word "water pipe" is more than "money truck".
