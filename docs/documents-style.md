@@ -30,7 +30,7 @@ But you can use the metaphor in the document for users. A good metaphor should l
 > Kernel is a foundation for operating system.
 
 When you are using metaphors, your metaphor should not distort the technical facts - you will make the same mistake as the sentence mainly discussed in this chapter.  
-> Wrong. 
+> Wrong.  
     Our IPC is like a money truck ...  
 > Right.  
     Our IPC is like a water pipe ...  
@@ -45,9 +45,12 @@ Please don't treat a thing as a human being in any technical document.
 A sense of humor can make people smile, while cold humor often does not confuse people.
 > [!WARNING]
 > Many programmers like to put some sarcasms that are only popular in operating system development or free software communities or open source communities in documents to be shown to ordinary users. Please don't do this. This will make users more confused.
-
-
+In the tech document, you can use some jokes, stalks or others in your documents.  
+But you should make sure it's not interfere the users read.  
 ## Language Expression
 The birth of language is to better express and communicate each of us's own ideas. Everyone should have a free way to express their ideas. Therefore, this article does not make any standard requirements for language expression.
 > [!WARNING]
 > Nevertheless, please do not use some technical jokes, humorous jokes, etc. that only programmers know in the documents shown to users, because this will confuse users. At this time, if possible, please try to replace it with written language.
+### Some "'*" Words and Wanna & Gonna
+We can speak some words such as 'bout, 'cause, etc. You cannot put these words in documents.  
+You can use them in the mailing lists.
