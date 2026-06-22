@@ -12,7 +12,7 @@ Some heresy will confuse "should", "can" and "must" in spoken language and docum
 Please don't mix them in any document, just like some heretical teachers.
 ## The Application of Rhetorical Techniques
 This chapter will revolve around this sentence:  
-**Our IPC is like a money truck, delivering information security to the process; like a faithful messenger, sending information to the process word by word.**
+**Our IPC is like a money truck, delivering information security to the process; like a faithful messenger, sending information to the process word by word.**  
 Let's analyze this sentence.
 ### Don't Use the Repeat
 Repeat isn't a good way for write tech documents.  
@@ -24,3 +24,7 @@ So, don't use repeat in your document(s).
 ### Metaphor
 > [!NOTE]
 > Unless you are writing documents for ordinary users, don't use metaphors unless necessary. Especially the metaphor that is too elegant.
+Metaphor shouldn't use in the tech documents for developers.  
+But you can use the metaphor in the document for users. A good metaphor should like this:  
+> Kernel is a foundation for operating system.
+When you're using the
