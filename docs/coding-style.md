@@ -240,10 +240,12 @@ int tmp = 0 // Init tmp is 0
 You shouldn't use too many single-line comments, for example, this:
 ```C
 // This comments have too many signgle-line comments
-// Don't Do that.
-// Your comments (single-line) should <3 lines
-// But this ... is 5 lines
+// Don't do that.
+// Because that's ugly.
+// Your comments (single-line) should ~5 lines
+// But this ... is 6 lines
 // So, it's wrong.
+// WRONG
 
 // 👆 This is WRONG ❌
 // 👆 But this is right ✅.
@@ -262,13 +264,11 @@ The multi-line comments is a good way to write comments document.<br>
 For examples:
 ```C
 /**
- * This is the preferred style for multi-line
- * comments in the Linux kernel source code.
- * Please use it consistently.
- *
- * Description:  A column of asterisks on the left side,
- * with beginning and ending almost-blank lines.
- */
+ * This is a example of the multi-line comments.
+ * It's more useful, and this syntax is very old.
+ * It just a example for this guide.
+**/
+/* This is a comments syntax, too. */
 ```
 See [document style](documents-style.md) to learn details.<br>
 In any case, annotating data—whether of basic or derived types—is important. To facilitate this, declare only one data item per line (avoid declaring multiple items at once using commas). This leaves you space to write a brief comment explaining the purpose of each item.
