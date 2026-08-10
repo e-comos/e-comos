@@ -18,7 +18,7 @@ One. Submit an Issue Report
   If we encounter this situation, we will mark your issue report as "WONTFIX," meaning we will not fix the issue.
 Two. Translate
   There are some comments in codes, some documents or others using English only , or other language only.
-  We need some people to translate them, if you're going to translate, please `git clone` our repo first, and send a patch to our mailing list <e-comos-kernel@groups.io>.
+  We need some people to translate them, if you're going to translate, please `git clone` our repo first, and send a patch to our mailing list.
 Three. Codes
   The codes is most important, if you can, please join up us to develop E-comOS, we're using 1TBS, 4-bits tab and snake_case only.
   We'll reject use the Allman, GNU style and spaces, camlCase codes in our codes.
@@ -28,7 +28,7 @@ Three. Codes
        - Review your code by yourself;
        - CAN'T send the patch and using AI to provide responses during code reviews;
        - You CAN'T use the AI to generate the ideas; and
-       - The copyright is YOUR, when you push the code, your copyright line should like this:
+       - The copyright is YOURs, when you push the code, your copyright line should like this:
                 Copyright(C) YOUR NAME   YEARS
 Four. Douments
   We talked the codes, but we forgot documents.
