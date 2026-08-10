@@ -38,7 +38,7 @@ Simply put, a cover letter is an email containing only the description of the pa
 A good cover letter can help you to get the trust from maintainer, in the open-source commuity, the **trust** is very important.
 ### Patch - How to Make a Patch
 > [!WARNING]
-> Use Outlook's mail sevice is not a good choice, my email is a @outllok mail. Because Microsoft's some ... "safe" auth system, I cannot use `git send-email`.
+> Use Outlook's mail sevice is not a good choice, my email is a outlook.com's email service. Because Microsoft's some ... "safe" auth system, I cannot use `git send-email`.
 > If you want to send your patch, please use `git send-email` first.
 > If you can't use the `git send-email`, please use your mail software with paint text to send you patch.
 
