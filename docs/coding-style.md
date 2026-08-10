@@ -11,32 +11,32 @@ E-comOS Operating System Project use the **1TBS** style. The 1TBS means in **any
 
 /* Right ✅ */
 void* func1(void) {
-  printf("This is right!");
-  return NULL;
+	printf("This is right!");
+	return NULL;
 }
 
 /* Wrong ❌ */
 int main(void)
 {
-  func1();
-  if (func1() != NULL)
-  {
-    abort();
-  }
-  else
-  {
-    exit(0);
-  }
+	func1();
+	if (func1() != NULL)
+  	{
+    	abort();
+  	}
+  	else
+  	{
+    	exit(0);
+  	}
 }
 ```
 ### Tab
 You have to use the Tab key to indentation. Here is a Example
 ```C
 for (int cnt=1;cnt<=5;cnt++) {
-  // Wrong ❌
-  printf("This is wrong");
-  // Right ✅
-  printf("This is right");
+	// Wrong ❌
+    printf("This is wrong");
+	// Right ✅
+	printf("This is right");
 }
 ```
 We are using the 4-spaces tab, because 8-spaces tab make good code looks like a shit, too.<br>
@@ -49,11 +49,11 @@ if (something) do_something():
 ```
 However, doing this isn't ideal when using multi-branch statements. It will be this :
 ```C
-if (something == true) do_something(); else do_others();
+if (something) do_something(); else do_others();
 ```
 Some fools write code like this.
 ```C
-if (some_function() == true) { do_first_thing(); } else if (return_value == A_MACRO) { do_a_thing(); } else {return;}
+if (some_function()) { do_first_thing(); } else if (return_value == A_MACRO) { do_a_thing(); } else {return;}
 ```
 Don't do that. It's ugly.
 ### Spaces
@@ -75,7 +75,7 @@ You shouldn't add the spaces after "(" in one line.
 ```C
 /* Right ✅ */
 for (;;) {
-  __builtin_unreachable();
+	__builtin_unreachable();
 }
 ```
 Before the '.' and the '->' don't put the spaces.
@@ -87,12 +87,12 @@ A good code should look like this:
 ```C
 #include <stdio.h>
 int main(void) {
-  int var;
-  scanf("%d",&var);
-  for (int tmp=var; tmp >= 0; tmp--) { // Put a spaces before '--''++' is ugly
-    printf("%d",&tmp);
-  }
-  exit(0);
+	int var;
+	scanf("%d",&var);
+	for (int tmp=var; tmp >= 0; tmp--) { // Put a spaces before '--''++' is ugly
+    	printf("%d",&tmp);
+  	}
+  	exit(0);
 }
 ```
 ### Name
@@ -160,7 +160,7 @@ int good_func(char* print_words);
 ```
 And, some functions have too more parameters, please define it like:
 ```C
-_Noreturn void a_no_retuen_long_paramters_func (int a, int b, char[] c, void* d, bool f
+_Noreturn void a_no_return_long_paramters_func (int a, int b, char[] c, void* d, bool f
                                                 FILE* g, pid_t h, uint32_t i, int64_t j);
 ```
 > [!NOTE]
